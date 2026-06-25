@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "node scripts/build-mobile.mjs",
+    "build:ssr": "vite build",
     "build:dev": "vite build --mode development",
     "build:mobile": "node scripts/build-mobile.mjs",
     "build:android": "node scripts/build-mobile.mjs --sync",
