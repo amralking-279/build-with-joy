@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "node scripts/build-mobile.mjs",
+    "build": "node scripts/build-mobile.mjs --sync-if-android",
     "build:ssr": "vite build",
     "build:dev": "vite build --mode development",
     "build:mobile": "node scripts/build-mobile.mjs",
     "build:android": "node scripts/build-mobile.mjs --sync",
+    "cap:sync": "npx cap sync android",
+    "android": "npm run build:android && cd android && ./gradlew assembleDebug",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."

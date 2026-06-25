@@ -75,7 +75,11 @@ const outPath = resolve(root, "dist/client/index.html");
 writeFileSync(outPath, html);
 console.log(`✔ Wrote ${outPath} (${html.length} bytes)`);
 
-if (process.argv.includes("--sync")) {
+const shouldSync =
+  process.argv.includes("--sync") ||
+  (process.argv.includes("--sync-if-android") && existsSync(resolve(root, "android")));
+
+if (shouldSync) {
   console.log("\n▶ Syncing Capacitor (android)…");
   run("npx", ["cap", "sync", "android"]);
 }
